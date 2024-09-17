@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <meta charset = "UTF-8">
+    <meta name = 'viewport' content = 'width=device-width, initial - scale = 1.0'>
+    <title>PlantGrowth_Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body{
+            background-image: url('AdobeStock_102891724-658317-edited.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Comic Sans MS', cursive;
+            margin: 0;
+            padding: 0;
+        }
+        body :hover{
+            color: #0317ed;
+            background-color: rgb(0, 255, 179);
+        }
+        .container{
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgb(0, 255, 255, 0.7);
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+        h1{
+            text-align: center;
+            color: black;
+        }
+        form{
+            margin-top: 20px;
+        }
+        label{
+            display: block;
+            margin-bottom: bold;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid gray;
+            border-radius: 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #5a68f9;
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0317ed;
+        }
+        .output {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>   
+    
+    <body>
+    <div class="container">
+        <h1>Plant Growth Prediction</h1>
+        <form action="/predict" method="post">
+            <label for='Soil_Type'>Soil Type:</label>
+            <select id='Soil_Type' name='Soil_Type' required>
+                <option value="" disabled selected>Select an option</option>
+                <option value='clay'>Clay</option>
+                <option value='sandy'>Sandy</option>
+                <option value='loamy'>Loamy</option>
+            </select><br>
+
+            <label for='Sunlight_Hours'>Sunlight Hours:</label>
+            <input type='number' id='Sunlight_Hours' name='Sunlight_Hours' step='0.01' placeholder="Enter the Sunlight Hours" required><br>
+
+            <label for='Water_Frequency'>Water Frequency:</label>
+            <select id='Water_Frequency' name='Water_Frequency' required>
+                <option value="" disabled selected>Select an option</option>
+                <option value='daily'>Daily</option>
+                <option value='bi-weekly'>Bi-Weekly</option>
+                <option value='weekly'>Weekly</option>
+            </select><br>
+
+            <label for='Fertilizer_Type'>Fertilizer Type:</label>
+            <select id='Fertilizer_Type' name='Fertilizer_Type' required>
+                <option value="" disabled selected>Select an option</option>
+                <option value='none'>None</option>
+                <option value='chemical'>Chemical</option>
+                <option value='organic'>Organic</option>
+            </select><br>
+
+            <label for='Temperature'>Temperature (in degree Celcius):</label>
+            <input type='number' id='Temperature' name='Temperature' step='0.01' placeholder="Enter the Temperature (in degree Celcius)" required><br>
+
+            <label for='Humidity'>Humidity (in %):</label>
+            <input type='number' id='Humidity' name='Humidity' step='0.01' placeholder="Enter the Humidity (in %)" required><br>
+
+            <input type="submit" value="Predict Plant Growth">
+        </form>
+    </div>
+    
+    </body>
+    </html>
+    
+</html>
