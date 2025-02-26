@@ -3,7 +3,7 @@ from flask_cors import cross_origin
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open("D:\\EDA\\PlantGrowth_Predictor v1.0\\PlantGrowth_Predictor.pkl", "rb"))
+model = pickle.load(open("PlantGrowth_Predictor.pkl", "rb"))
 
 
 @app.route("/")
